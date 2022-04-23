@@ -109,5 +109,11 @@ class TestCredentials(unittest.TestCase):
         test_credentials.save_credential()
         credential_is_found = Credentials.credential_exist("RachelOyondi")
         self.assertTrue(credential_is_found)
+
+    def test_display_saved_credentials(self):
+        '''
+        method that displays a list of all credentials saved
+        '''
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
 if __name__=='__main__':
     unittest.main()

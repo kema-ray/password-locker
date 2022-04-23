@@ -70,6 +70,7 @@ class Credentials():
         for credential in cls.credentials_list:
             if credential.userName == userName:
                 return credential
+
     @classmethod
     def credential_exist(cls,userName):
         '''
@@ -79,3 +80,10 @@ class Credentials():
             if credential.userName == userName:
                 return True
         return False
+    
+    @classmethod
+    def display_credentials(cls):
+        '''
+        Amethod that returns all items in the credentials_list
+        '''
+        return cls.credentials_list
