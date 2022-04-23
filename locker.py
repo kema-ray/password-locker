@@ -14,3 +14,9 @@ class User:
         save_user method saves user objects intouser_list
         '''
         User.user_list.append(self)
+    @classmethod
+    def display_user(cls):
+        '''
+        method that returns the user list
+        '''
+        return cls.user_list
