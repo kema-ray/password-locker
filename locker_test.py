@@ -57,12 +57,21 @@ class TestUser(unittest.TestCase):
 
 class TestCredentials(unittest.TestCase):
     def setUp(self):
+        '''
+        Set up method to run before each test cases
+        '''
         self.new_credential = Credentials("Instagram","RachelOyondi","kemaRay99")
     def test_init(self):
+        '''
+        test case to test if the object is initialized properly
+        '''
         self.assertEqual(self.new_credential.account,"Instagram")
         self.assertEqual(self.new_credential.userName,"RachelOyondi")
         self.assertEqual(self.new_credential.password,"kemaRay99")
 
+    def test_save_credential(self):
+        self.new_credential.save_credential()
+        self.assertEqual(len(Credentials.credentials_list),1)
 
 if __name__=='__main__':
     unittest.main()
