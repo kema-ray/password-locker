@@ -88,9 +88,9 @@ class Credentials():
         '''
         return cls.credentials_list
 
-    def getPassword(stringLength=15):
+    def generate_password(stringLength=15):
         '''
-        Generate a randm password string that cnsists letters,digits and special characters
+        Generate a random password string that cnsists letters,digits and special characters
         '''
         password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "@#$%~&*"
         return ''.join(random.choice(password) for i in range(stringLength))

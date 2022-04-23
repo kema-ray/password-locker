@@ -63,9 +63,32 @@ def find_credential(userName):
     '''
     return Credentials.find_credential(userName)
 
-def get_Password():
+def gen_password():
     '''
     Function that generates a password for the user
     '''
-    auto_password = Credentials.getPassword()
-    return auto_password
+    default_password = Credentials.generate_password()
+    return default_password
+
+def locker():
+    print("Hello Welcome to the Password Locker \n Enter one of the folllowing in order to proceed.\n CA ---- Create new Account EA--- Already has an existing Account")
+    short_code = input("").lower().strip()
+    if short_code == "ca":
+        print("Sign Up")
+        print('-'*50)
+        username = input("UserName: ")
+        while True:
+            print("TP- Type your own password:\n GP - Generate for me a password:")
+            choose_password = input().lower().strip()
+            if choose_password == 'tp':
+                password = input("Enter Password.\n")
+                break
+            elif choose_password == 'gp':
+                password = gen_password()
+                break
+            else:
+                print("Try again!Invalid password")
+
+
+if __name__ == '__main__':
+    locker() 
