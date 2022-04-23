@@ -28,3 +28,13 @@ class User:
         A method that deletes a saved user from the user_list
         '''
         User.user_list.remove(self)
+    @classmethod
+    def verify_user(cls,username,password):
+        '''
+        A method to verify the user is in our user_list or not 
+        '''
+        person= ""
+        for user in User.user_list:
+            if(user.username == username  and user.password == password):
+                person == user.username
+        return person
