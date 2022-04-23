@@ -41,9 +41,19 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
 
-    def test_display_all_user(self):
-        self.assertEqual(User.display_user(),User.user_list)
+    def test_display_all_users(self):
+        '''
+        A method that returns a list of all users saved
+        '''
+        self.assertEqual(User.display_users(),User.user_list)
 
+    def test_delete_user(self):
+        self.new_user.save_user()
+        test_user = User("Test","qwerty2u")
+        test_user.save_user()
+
+        self.new_user.delete_user()
+        self.assertEqual(len(User.user_list),1)
 
 if __name__=='__main__':
     unittest.main()
