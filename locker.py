@@ -1,5 +1,5 @@
-from requests import delete
-
+import random
+import string
 
 class User:
     '''
@@ -87,3 +87,10 @@ class Credentials():
         Amethod that returns all items in the credentials_list
         '''
         return cls.credentials_list
+
+    def genPassword(stringLength=15):
+        '''
+        Generate a randm password string that cnsists letters,digits and special characters
+        '''
+        password = string.ascii_uppercase + string.ascii_lowercase + string.digits + "@#$%~&*"
+        return ''.join(random.choice(password) for i in range(stringLength))
