@@ -38,3 +38,16 @@ class User:
             if(user.username == username  and user.password == password):
                 person == user.username
         return person
+
+class Credentials():
+    '''
+    class that generates new instances of contacts
+    '''
+    credentials_list = []
+    def __init__(self,account,userName,password):
+        '''
+        Method that helps us define properties for our objects
+        '''
+        self.account = account
+        self.userName = userName
+        self.password = password

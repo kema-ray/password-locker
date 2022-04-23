@@ -1,6 +1,6 @@
-from cgi import test
 import unittest
 from locker import User
+from locker import Credentials
 
 class TestUser(unittest.TestCase):
     '''
@@ -54,6 +54,14 @@ class TestUser(unittest.TestCase):
 
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)
+
+class TestCredentials(unittest.TestCase):
+    def setUp(self):
+        self.new_credential = Credentials("Instagram","RachelOyondi","kemaRay99")
+    def test_init(self):
+        self.assertEqual(self.new_credential.account,"Instagram")
+        self.assertEqual(self.new_credential.userName,"RachelOyondi")
+        self.assertEqual(self.new_credential.password,"kemaRay99")
 
 
 if __name__=='__main__':
