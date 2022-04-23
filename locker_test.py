@@ -55,5 +55,16 @@ class TestUser(unittest.TestCase):
         self.new_user.delete_user()
         self.assertEqual(len(User.user_list),1)
 
+    @classmethod
+    def verify_user(cls,username,password):
+        '''
+        A method to verify the user is in our user_list or not 
+        '''
+        person= ""
+        for user in User.user_list:
+            if(user.username == username  and user.password == password):
+                person == user.username
+        return person
+
 if __name__=='__main__':
     unittest.main()
