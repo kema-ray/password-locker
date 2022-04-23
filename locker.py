@@ -88,7 +88,7 @@ class Credentials():
         '''
         return cls.credentials_list
 
-    def genPassword(stringLength=15):
+    def getPassword(stringLength=15):
         '''
         Generate a randm password string that cnsists letters,digits and special characters
         '''
