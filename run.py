@@ -87,7 +87,21 @@ def locker():
                 password = gen_password()
                 break
             else:
-                print("Try again!Invalid password")
+                print("Try again!Invalid password!!")
+        save_user(create_new_user(username,password))
+        print("-"*50)
+        print(f"Hello {username},your login was successful! Your password is:{password}")
+        print("-"*40)
+    elif short_code == "ea":
+        print("-"*35)
+        print("Enter your username amd password to sign in:")
+        print("-"*35)
+        username=input("username: ")
+        password=input("password: ")
+        # signin = login_user(username,password)
+        # if login_user == signin
+        print(f"Hello {username}.Welcome to the password locker")
+
 
 
 if __name__ == '__main__':
