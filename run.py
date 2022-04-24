@@ -142,7 +142,7 @@ def locker():
             input_name = input().lower()
             if find_credential(input_name):
                 search_credential = find_credential(input_name)
-                print(f"User Name: {search_credential.userName}")
+                print(f"UserName: {search_credential.userName}\n Account: {search_credential.account}\n Password:{search_credential.password}")
                 print("-"*60)
             else:
                 print("That credential is unavailable")
@@ -154,7 +154,7 @@ def locker():
                 search_credential = find_credential(input_name)
                 print("-"*50)
                 search_credential.delete_credentials()
-                print(f"The stored credentials for : {search_credential.userName} successfully removed")
+                print(f"The stored credentials for : {search_credential.userName}, {search_credential.account},{search_credential.password} successfully removed")
             else:
                 print("That credential does not exist")    
         
