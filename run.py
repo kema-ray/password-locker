@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.8
+
 from locker import User, Credentials
 
 def create_new_user(username,password):
@@ -103,7 +104,7 @@ def locker():
         print(f"Hello {username}.Welcome to the password locker")
 
     while True:
-        print("Use these short codes:\n NC-New Credential\n DC-Display credentials\n FC-Find credential\n GP-Generate random password\n D-Delete credential\n")
+        print("Use these short codes:\n NC-New Credential\n DC-Display credentials\n SC-Search credential\n GP-Generate random password\n D-Delete credential\n EX-exit\n")
         short_code =input().lower().strip()
         if short_code == "nc":
             print("Create new credential")
@@ -136,9 +137,36 @@ def locker():
             else:
                 print("No such credentials are saved yet......")    
 
-        # elif short_code == ""   
+        elif short_code == "sc":
+            print("Enter the userName you want to search for")
+            input_name = input().lower()
+            if find_credential(input_name):
+                search_credential = find_credential(input_name)
+                print(f"User Name: {search_credential.userName}")
+                print("-"*60)
+            else:
+                print("That credential is unavailable")
         
-
+        elif short_code == "d":
+            print("Enter user name of the credentials to be deleted")
+            input_name = input().lower()
+            if find_credential(input_name):
+                search_credential = find_credential(input_name)
+                print("-"*50)
+                search_credential.delete_credentials()
+                print(f"The stored credentials for : {search_credential.userName} successfully removed")
+            else:
+                print("That credential does not exist")    
+        
+        elif short_code == "gp":
+            password = gen_password()
+            print(f"{password} Password has been generated successfully. Enjoy using the password generated")
+        
+        elif short_code == "ex":
+            print("Thank you for using this site..Welcome again")
+            break
+        else:
+            print("Print enter a valid short code to access the services")
 
 if __name__ == '__main__':
     locker() 
