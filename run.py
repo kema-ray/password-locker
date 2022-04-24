@@ -102,6 +102,42 @@ def locker():
         # if login_user == signin
         print(f"Hello {username}.Welcome to the password locker")
 
+    while True:
+        print("Use these short codes:\n NC-New Credential\n DC-Display credentials\n FC-Find credential\n GP-Generate random password\n D-Delete credential\n")
+        short_code =input().lower().strip()
+        if short_code == "nc":
+            print("Create new credential")
+            print("-"*30)
+            print("Enter Account name ...")
+            account = input().lower()
+            print("Enter your username:")
+            userName = input()
+            while True:
+               print("TP-Type password GP-Generate password")
+               choose_password = input().lower().strip()
+               if choose_password == "tp":
+                  password = input("Enter your password\n")
+                  break
+               elif choose_password == "gp":
+                   password = gen_password()
+                   break
+               else:
+                   print("Invalid password")
+            save_credentials(create_new_credentials(account,userName,password))
+            print(f"Account credentials for:{account} -UserName: {userName} -Password: {password} successfully created")       
+        
+        elif short_code == "dc":
+            if display_account_details():
+                print("This is the list of accounts saved: ")
+                print("-"*40)
+                for user in display_account_details():
+                    print(f"Account:{user.account} UserName:{username} Password:{password}")
+                print("-"*40)
+            else:
+                print("No such credentials are saved yet......")    
+
+        # elif short_code == ""   
+        
 
 
 if __name__ == '__main__':
